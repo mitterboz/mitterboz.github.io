@@ -1,16 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header.jsx'
+import Sidebar from './components/Sidebar.jsx'
+import MainContent from './components/MainContent.jsx'
+import Footer from './components/Footer.jsx'
+
 
 function App() {
   return (
     <div className="App">
-      <ul>
-        <li>HTML</li>
-        <li>CSS(SASS)</li>
-        <li>JS(REACT)</li>
-        <li>GIT,WEBPACK</li>
-      </ul>
+      <Header />
+      <Sidebar />
+      <MainContent />
+      <Footer />
     </div>
   );
 }
