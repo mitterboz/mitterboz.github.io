@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './components/Header.jsx'
-import Sidebar from './components/Sidebar.jsx'
-import MainContent from './components/MainContent.jsx'
-import Footer from './components/Footer.jsx'
+import Header from './components/Header/Header.jsx'
+import Navbar from './components/Navbar/Navbar.jsx'
+import MainContent from './components/MainContent/MainContent.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Sidebar />
+      <Navbar />
       <MainContent />
       <Footer />
     </div>

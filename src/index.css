@@ -20,7 +20,7 @@ code {
 	display: grid;
 	grid-template-areas: 
 	'h h' 
-	'a m'
+	'n m'
 	'f f';
 	grid-template-rows: 60px 1fr 60px;
 	grid-template-columns: 2fr 8fr;
@@ -39,10 +39,7 @@ header {
 	grid-area: h;
 	background-color: #7212;
 }
-article {
-	grid-area: a;
-	background-color: #1745;
-}
+
 .mainContent {
 	grid-area: m;
 	background-color: #17782377;

@@ -1,0 +1,18 @@
+.logoImg {
+	width: 60px;
+	height: 60px;
+}
+.logo {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: flex-start;
+}
+header {
+	grid-area: h;
+	background-color: #7212;
+}
