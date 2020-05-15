@@ -1,3 +1,7 @@
 .mainContent {
 	grid-area: m;
+	background: linear-gradient(30deg, #FFFF66, #FF6666);
+}
+button {
+	margin-left: 30px;
 }

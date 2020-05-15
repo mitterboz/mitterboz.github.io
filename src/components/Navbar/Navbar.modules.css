@@ -3,23 +3,6 @@ nav {
 	grid-area: n;
 	background-color: #1745;
 }
-nav ul {
-	margin: 20px 0px 0px 20px;
-	padding: 0;
-	list-style-type: none;
-}
-nav ul li {
-	letter-spacing: .7px;
-	line-height: 1.5;
-}
-nav ul a {
-	text-decoration: none;
-	color: black;
-	transition: .1s;
-}
-nav ul a:hover {
-	color: green;
-}
 .avaWrapper {
 	text-align: center;
 	margin-top: 3px;
@@ -28,8 +11,4 @@ nav img {
 	width: 98%;
 	height: 250px;
 	border-radius: 10px;
-}
-nav a.active {
-	color: #884411;
-	font-weight: 900;
 }
