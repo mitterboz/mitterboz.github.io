@@ -1,6 +1,11 @@
 import React from 'react'
 import "./Messages.modules.css"
 import {NavLink} from "react-router-dom"
+import {BrowserRouter, Route} from "react-router-dom"
+import User1 from "./User1/User1.jsx"
+import User2 from "./User2/User2.jsx"
+import User3 from "./User3/User3.jsx"
+
 
 const UserLinks = (props) => {
 	let path = "/messages/" + props.id
@@ -9,26 +14,22 @@ const UserLinks = (props) => {
 	)
 }
 
-const UserDialogs = (props) => {
-	return (
-		<p>{props.message}</p>
-	)
-}
 
-const Messages = () => {
+const Messages = (props) => {
+
+let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
+
 	return (
 		<div className="messagesBlock">
 			<div className="usersNames">
 				<ul className="nameList">
-					<UserLinks name="Ibragim" id="1"/>
-					<UserLinks name="Volodimir" id="2"/>
-					<UserLinks name="Kazemir" id="3"/>
+					{users}
 				</ul>
 			</div>
 			<div className="usersDialogs">
-				<UserDialogs message="Hello"/>
-				<UserDialogs message="How are you"/>
-				<UserDialogs message="What are you doing here"/>
+				<Route path='/messages/1' render={ () => <User1 dialogs={props.mess}/> } />
+				<Route path='/messages/2' component={User2} />
+				<Route path='/messages/3' component={User3} />
 			</div>
 		</div>
 	)

@@ -6,7 +6,7 @@ const Navbar = () => {
 	return (
     <nav>
     <div className="avaWrapper">
-      <img alt="Avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3h8_zD-GskSXJmJchCBALXYtbVTDu2_6K0FyjUcvosTAUfdww&usqp=CAU" />
+      <img alt="Avatar" src="https://whatsism.com/uploads/posts/2018-07/1530546770_rmk_vdjbx10.jpg" />
     </div>
       <ul>
         <li><NavLink to="/main">Main</NavLink></li>

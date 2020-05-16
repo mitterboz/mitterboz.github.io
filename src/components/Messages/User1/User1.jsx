@@ -1,11 +1,12 @@
 import React from 'react';
+import "../stylesForDialogs.css"
 
-const User1 = () => {
+
+const User1 = (props) => {
+let dialogsElems = props.dialogs.map(mess => mess.message)
 	return (
 			<div className="usersDialogs">
-				<p>Hello USER 1!</p>
-				<p>How are you?</p>
-				<p>Im fine thanks and you</p>
+				<p>{dialogsElems}</p>
 			</div>
 		)
 }

@@ -15,14 +15,15 @@ import Video from "./components/Video/Video.jsx"
 import {BrowserRouter, Route} from "react-router-dom"
 
 
-function App() {
+function App(props) {
+
+
   return (
-  <BrowserRouter>
     <div className="App">
       <Header />
       <Navbar />
       <Route path='/main' component={MainContent} />
-      <Route path='/messages' component={Messages} />
+      <Route path='/messages' render={ () => <Messages mess={props.dialogs} users={props.users} /> } />
       <Route path='/news' component={News} />
       <Route path='/friends' component={Friends} />
       <Route path='/apps' component={Apps} />
@@ -33,7 +34,6 @@ function App() {
       <Route path='/video' component={Video} />
       <Footer />
     </div>
-  </BrowserRouter>
   );
 }
 

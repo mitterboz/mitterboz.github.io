@@ -5,7 +5,9 @@ import "./Posts.modules.css"
 const Posts = () => {
 	return (
 			<div className="mainPost">
-				<h4>Some post for long time lorem ipsum dolor eset</h4>
+				<h4>MY POST:</h4>
+				<textarea></textarea>
+				<button>add post</button>
 				<Comments name='Dima' message='Its good idea bro' />
 				<Comments name='Nikola' message='I think too man!' />
 			</div>
