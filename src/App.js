@@ -16,14 +16,12 @@ import {BrowserRouter, Route} from "react-router-dom"
 
 
 function App(props) {
-
-
   return (
     <div className="App">
       <Header />
-      <Navbar />
-      <Route path='/main' component={MainContent} />
-      <Route path='/messages' render={ () => <Messages mess={props.dialogs} users={props.users} /> } />
+      <Navbar friends={props.appState.friends} />
+      <Route path='/main' render={ () => <MainContent newPost={props.appState.newPostText.text} users={props.appState.users.UserData} addNewPost={props.addNewPost} updatePost={ props.updatePost} /> } />
+      <Route path='/messages' render={ () => <Messages mess={props.appState.messages.dialogMessage} users={props.appState.users.UserData} /> } />
       <Route path='/news' component={News} />
       <Route path='/friends' component={Friends} />
       <Route path='/apps' component={Apps} />

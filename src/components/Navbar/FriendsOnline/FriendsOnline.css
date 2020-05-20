@@ -1,0 +1,31 @@
+.friendsOnline {
+	margin: 0 auto;
+	display: grid;
+	grid-template-column: 1fr 1fr 1fr;
+}
+.view1 {
+	grid-column:1/2;
+}
+.view2 {
+	grid-column:2/3;
+}
+.view3 {
+	grid-column:3/4;
+}
+.friendsOnline-view {
+	text-align: center;
+	position: relative;
+}
+.friendsOnline-view p {
+	line-height: 1;
+	margin-bottom: 5px;
+}
+.friendsOnline-view img {
+	width: 50px;
+	height: 50px;
+}
+.friendsOnline-view span {
+	color: #379;
+	font-size: 12px;
+	line-height: 1;
+}

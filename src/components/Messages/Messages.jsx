@@ -19,6 +19,12 @@ const Messages = (props) => {
 
 let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
 
+let newMess = React.createRef()
+
+let sendMess = () => {
+	alert(newMess.current.value)
+}
+
 	return (
 		<div className="messagesBlock">
 			<div className="usersNames">
@@ -30,6 +36,8 @@ let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
 				<Route path='/messages/1' render={ () => <User1 dialogs={props.mess}/> } />
 				<Route path='/messages/2' component={User2} />
 				<Route path='/messages/3' component={User3} />
+				<textarea ref={ newMess } ></textarea>
+				<button onClick={ sendMess } >send mess</button>
 			</div>
 		</div>
 	)

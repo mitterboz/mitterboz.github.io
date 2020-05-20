@@ -1,6 +1,6 @@
 .logoImg {
-	width: 60px;
-	height: 60px;
+	width: 55px;
+	height: 55px;
 }
 .logo {
 	display: -webkit-flex;
@@ -12,7 +12,11 @@
 	align-items: center;
 	justify-content: flex-start;
 }
+.logo h3 {
+	margin-left: 5rem;
+}
 header {
 	grid-area: h;
-	background: linear-gradient(200deg, #892, #577);
+	border-bottom: 1px solid #888;
+
 }
