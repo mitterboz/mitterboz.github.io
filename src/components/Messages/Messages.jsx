@@ -5,7 +5,8 @@ import {BrowserRouter, Route} from "react-router-dom"
 import User1 from "./User1/User1.jsx"
 import User2 from "./User2/User2.jsx"
 import User3 from "./User3/User3.jsx"
-
+import { actionAddMessage } from "../../redux/state.js"
+import { actionUpdateMessage } from "../../redux/state.js"
 
 const UserLinks = (props) => {
 	let path = "/messages/" + props.id
@@ -14,7 +15,6 @@ const UserLinks = (props) => {
 	)
 }
 
-
 const Messages = (props) => {
 
 let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
@@ -22,11 +22,12 @@ let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
 let newMess = React.createRef()
 
 let sendMess = () => {
-	props.addMessage();
+	props.dismatch(actionAddMessage());
 }
 
 let updateMess = () => {
-	props.updateMessage(newMess.current.value);
+	let messageTxt = newMess.current.value
+	props.dismatch(actionUpdateMessage(messageTxt));
 	newMess.current.value = props.userMess;
 }
 

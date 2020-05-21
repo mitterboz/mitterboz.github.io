@@ -1,6 +1,9 @@
 import React from 'react';
 import Comments from "./Comments.jsx"
 import "./Posts.modules.css"
+import { actionAddPost } from "../../../redux/state.js"
+import { actionUpdatePost } from "../../../redux/state.js"
+
 
 let OldPost = (props) => {
 	return (
@@ -11,19 +14,19 @@ let OldPost = (props) => {
 }
 
 const Posts = (props) => {
+	let newPost = React.createRef();
 
 	let addNew = () => {
-		props.addNewPost();
+		props.dismatch(actionAddPost());
 	}
 
 	let update = () => {
-		props.updatePost(newPost.current.value);
-		newPost.current.value = props.newPost;
+		let postTxt = newPost.current.value
+		props.dismatch(actionUpdatePost(postTxt));
+		postTxt = props.newPost;
 	}
 
 	let posts = props.users.map( mess => <OldPost messages={ mess.messages } /> )
-
-	let newPost = React.createRef();
 
 	return (
 			<div className="mainPost">

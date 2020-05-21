@@ -7,7 +7,7 @@ const MainContent = (props) => {
 	return (
 		<div className="mainContent">
 			<Info about="someAbout" birthday="xx/xx/xxxx" sex="male" edu="highSchool" country="BLR"/>
-			<Posts newPost={props.newPost} users={props.users} addNewPost={ props.addNewPost } updatePost={ props.updatePost } />
+			<Posts newPost={props.newPost} users={props.users} dismatch={ props.dismatch } />
 		</div>
 	);
 }

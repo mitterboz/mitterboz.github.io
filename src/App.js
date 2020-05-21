@@ -20,8 +20,8 @@ function App(props) {
     <div className="App">
       <Header />
       <Navbar friends={props.store.state.friends} />
-      <Route path='/main' render={ () => <MainContent newPost={props.store.state.newPostText.text} users={props.store.state.users.UserData} addNewPost={props.store.addNewPost.bind(props.store)} updatePost={ props.store.updatePost.bind(props.store)} /> } />
-      <Route path='/messages' render={ () => <Messages addMessage={props.store.addMessage.bind(props.store)} updateMessage={props.store.updateMessage.bind(props.store)} users={props.store.state.users.UserData} userMess={props.store.state.users.newMessages} /> } />
+      <Route path='/main' render={ () => <MainContent dismatch={props.store.dismatch.bind(props.store)} users={props.store.state.users.UserData} newPost={props.store.state.newPostText.text} /> } />
+      <Route path='/messages' render={ () => <Messages dismatch={props.store.dismatch.bind(props.store)} users={props.store.state.users.UserData} userMess={props.store.state.users.newMessages} /> } />
       <Route path='/news' component={News} />
       <Route path='/friends' component={Friends} />
       <Route path='/apps' component={Apps} />
