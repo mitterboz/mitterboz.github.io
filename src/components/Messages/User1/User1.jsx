@@ -3,10 +3,10 @@ import "../stylesForDialogs.css"
 
 
 const User1 = (props) => {
-let dialogsElems = props.dialogs.map(mess => mess.message)
+let dialogsElems = props.users.map(mess => <p>{ mess.messages + ' - User ID : '+ props.users[0].id }</p>)
 	return (
 			<div className="usersDialogs">
-				<p>{dialogsElems}</p>
+				{dialogsElems}
 			</div>
 		)
 }

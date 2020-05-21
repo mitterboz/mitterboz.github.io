@@ -19,9 +19,9 @@ function App(props) {
   return (
     <div className="App">
       <Header />
-      <Navbar friends={props.appState.friends} />
-      <Route path='/main' render={ () => <MainContent newPost={props.appState.newPostText.text} users={props.appState.users.UserData} addNewPost={props.addNewPost} updatePost={ props.updatePost} /> } />
-      <Route path='/messages' render={ () => <Messages mess={props.appState.messages.dialogMessage} users={props.appState.users.UserData} /> } />
+      <Navbar friends={props.store.state.friends} />
+      <Route path='/main' render={ () => <MainContent newPost={props.store.state.newPostText.text} users={props.store.state.users.UserData} addNewPost={props.store.addNewPost.bind(props.store)} updatePost={ props.store.updatePost.bind(props.store)} /> } />
+      <Route path='/messages' render={ () => <Messages addMessage={props.store.addMessage.bind(props.store)} updateMessage={props.store.updateMessage.bind(props.store)} users={props.store.state.users.UserData} userMess={props.store.state.users.newMessages} /> } />
       <Route path='/news' component={News} />
       <Route path='/friends' component={Friends} />
       <Route path='/apps' component={Apps} />

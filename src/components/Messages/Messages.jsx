@@ -22,7 +22,12 @@ let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
 let newMess = React.createRef()
 
 let sendMess = () => {
-	alert(newMess.current.value)
+	props.addMessage();
+}
+
+let updateMess = () => {
+	props.updateMessage(newMess.current.value);
+	newMess.current.value = props.userMess;
 }
 
 	return (
@@ -33,10 +38,10 @@ let sendMess = () => {
 				</ul>
 			</div>
 			<div className="usersDialogs">
-				<Route path='/messages/1' render={ () => <User1 dialogs={props.mess}/> } />
-				<Route path='/messages/2' component={User2} />
-				<Route path='/messages/3' component={User3} />
-				<textarea ref={ newMess } ></textarea>
+				<Route path='/messages/1' render={ () => <User1 users={props.users}/> } />
+				<Route path='/messages/2' render={ () => <User2 users={props.users}/> } />
+				<Route path='/messages/3' render={ () => <User3 users={props.users}/> } />
+				<textarea onChange={ updateMess } ref={ newMess } value={props.userMess} ></textarea>
 				<button onClick={ sendMess } >send mess</button>
 			</div>
 		</div>

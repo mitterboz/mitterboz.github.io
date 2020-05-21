@@ -11,23 +11,24 @@ let OldPost = (props) => {
 }
 
 const Posts = (props) => {
+
 	let addNew = () => {
-		props.addNewPost(newPost.current.value);
-		posts = props.users.map( mess => <OldPost messages={ mess.messages } /> )
-		newPost.current.value = '';
+		props.addNewPost();
 	}
-	let posts = props.users.map( mess => <OldPost messages={ mess.messages } /> )
 
 	let update = () => {
 		props.updatePost(newPost.current.value);
 		newPost.current.value = props.newPost;
 	}
 
+	let posts = props.users.map( mess => <OldPost messages={ mess.messages } /> )
+
 	let newPost = React.createRef();
+
 	return (
 			<div className="mainPost">
 				<h4>MY POST:</h4>
-				<textarea onChange={ update } ref={ newPost } value='aaa' ></textarea>
+				<textarea onChange={ update } ref={ newPost } value={ props.newPost } ></textarea>
 				<button onClick={ addNew } >add post</button>
 				{ posts }
 				<Comments name={props.users[0].name} message='Its good idea bro' />
