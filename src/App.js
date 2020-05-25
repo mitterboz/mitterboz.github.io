@@ -20,8 +20,14 @@ function App(props) {
     <div className="App">
       <Header />
       <Navbar friends={props.store.state.friends} />
-      <Route path='/main' render={ () => <MainContent dismatch={props.store.dismatch.bind(props.store)} users={props.store.state.users.UserData} newPost={props.store.state.newPostText.text} /> } />
-      <Route path='/messages' render={ () => <Messages dismatch={props.store.dismatch.bind(props.store)} users={props.store.state.users.UserData} userMess={props.store.state.users.newMessages} /> } />
+      <Route path='/main' render={ () => <MainContent dismatch={props.store.dismatch.bind(props.store)} 
+                                          comments={props.store.state.main.comments} 
+                                          posts={props.store.state.main.posts} 
+                                          newPost={props.store.state.main.newPostText.text} /> } />
+      <Route path='/messages' render={ () => <Messages dismatch={props.store.dismatch.bind(props.store)} 
+                                          messages={props.store.state.messages.dialogMessage} 
+                                          newMessage={props.store.state.messages.newMessage.text} 
+                                          userNameDialogs={props.store.state.messages.userNameDialogs} /> } />
       <Route path='/news' component={News} />
       <Route path='/friends' component={Friends} />
       <Route path='/apps' component={Apps} />

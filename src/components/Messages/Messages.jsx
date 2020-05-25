@@ -16,8 +16,7 @@ const UserLinks = (props) => {
 }
 
 const Messages = (props) => {
-
-let users = props.users.map(user => <UserLinks name={user.name} id={user.id}/>)
+let users = props.userNameDialogs.map(user => <UserLinks name={user.name} id={user.id}/>)
 
 let newMess = React.createRef()
 
@@ -26,9 +25,9 @@ let sendMess = () => {
 }
 
 let updateMess = () => {
-	let messageTxt = newMess.current.value
+	let messageTxt = newMess.current.value;
 	props.dismatch(actionUpdateMessage(messageTxt));
-	newMess.current.value = props.userMess;
+	newMess.current.value = props.newMessage;
 }
 
 	return (
@@ -39,10 +38,10 @@ let updateMess = () => {
 				</ul>
 			</div>
 			<div className="usersDialogs">
-				<Route path='/messages/1' render={ () => <User1 users={props.users}/> } />
-				<Route path='/messages/2' render={ () => <User2 users={props.users}/> } />
-				<Route path='/messages/3' render={ () => <User3 users={props.users}/> } />
-				<textarea onChange={ updateMess } ref={ newMess } value={props.userMess} ></textarea>
+				<Route path='/messages/1' render={ () => <User1 messages={props.messages}/> } />
+				<Route path='/messages/2' render={ () => <User2 messages={props.messages}/> } />
+				<Route path='/messages/3' render={ () => <User3 messages={props.messages}/> } />
+				<textarea onChange={ updateMess } ref={ newMess } value={props.newMessage} ></textarea>
 				<button onClick={ sendMess } >send mess</button>
 			</div>
 		</div>

@@ -5,19 +5,37 @@ const UPDATE_POST = "UPDATE-POST"
 
 let store = {
 	state: {
+
 		messages: {
 			dialogMessage: [
-				{message: 'Hello USERELLO 1! ', id: 1},
+				{message: 'Hello USERELLO ! ', id: 1},
 				{message: 'How are you? ', id: 2},
 				{message: 'Some news here... ', id: 3}
+			],
+			newMessage: {
+				text: ""
+			},
+			userNameDialogs: [
+			{name: 'Viktor', id: 1},
+			{name: 'Sebastian', id: 2},
+			{name: 'Isakiil', id: 3}
 			]
 		},
-		newPostText: {
-			text: ''
-		},
-		users: {
-			UserData: [{name:'Nikolay', id: 1, messages: "Good for you!" }, {name: 'Slava', id: 2, messages: "Perfect bro" }, {name: 'Kazemir', id: 3, messages: "Its amaizing!" }],
-			newMessages: ''
+
+		main : {
+			posts: [
+			{post: 'I try to scream', id: 1},
+			{post: 'but my head was under water', id: 2},
+			{post: 'LOL, its funny!', id: 3}
+		],
+			newPostText: {
+				text: ''
+			},
+			comments: [
+				{name: 'William', text: 'good song bro', id: 1},
+				{name: 'Alfred', text: 'once more plz', id: 2},
+				{name: 'Platon', text: 'good for u, good', id: 3}
+			]
 		},
 		friends: {
 			info: {
@@ -30,27 +48,25 @@ let store = {
 	dismatch(action) {
 		if(action.type === "ADD-NEW-POST"){
 			let newPost = {
-				name: 'Dihali4',
-				id: 4,
-				messages: this.state.newPostText.text
+				post: this.state.main.newPostText.text,
+				id: 4
 			}
-			this.state.users.UserData.push(newPost);
-			this.state.newPostText.text = '';
+			this.state.main.posts.push(newPost);
+			this.state.main.newPostText.text = '';
 			this.callSubscriber(this.state);
 		}else if(action.type === "UPDATE-POST") {
-			this.state.newPostText.text = action.post;
+			this.state.main.newPostText.text = action.post;
 			this.callSubscriber(this.state);
 		}else if(action.type === "ADD-MESSAGE"){
 			let newMess = {
-				name: 'Valerian',
-				id: 4,
-				messages: this.state.users.newMessages
+				message: this.state.messages.newMessage.text,
+				id: 4
 			}
-			this.state.users.UserData.push(newMess)
-			this.state.users.newMessages = ""
+			this.state.messages.dialogMessage.push(newMess)
+			this.state.messages.newMessage.text = ""
 			this.callSubscriber(this.state);
 		}else if(action.type === "UPDATE-MESSAGE"){
-			this.state.users.newMessages = action.message;
+			this.state.messages.newMessage.text = action.message;
 			this.callSubscriber(this.state);
 		}
 	},
@@ -64,10 +80,10 @@ let store = {
 
 export const actionAddMessage = () => ({ type: ADD_MESSAGE })
 
+export const actionAddPost = () => ({ type: ADD_NEW_POST })
+
 export const actionUpdateMessage = (messageTxt) => 
 	({ type: UPDATE_MESSAGE, message: messageTxt })
-
-export const actionAddPost = () => ({ type: ADD_NEW_POST })
 
 export const actionUpdatePost = (postTxt) => 
 	({ type: UPDATE_POST, post: postTxt })

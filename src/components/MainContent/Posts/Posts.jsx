@@ -26,7 +26,7 @@ const Posts = (props) => {
 		postTxt = props.newPost;
 	}
 
-	let posts = props.users.map( mess => <OldPost messages={ mess.messages } /> )
+	let posts = props.posts.map( mess => <OldPost messages={ mess.post } /> )
 
 	return (
 			<div className="mainPost">
@@ -34,8 +34,8 @@ const Posts = (props) => {
 				<textarea onChange={ update } ref={ newPost } value={ props.newPost } ></textarea>
 				<button onClick={ addNew } >add post</button>
 				{ posts }
-				<Comments name={props.users[0].name} message='Its good idea bro' />
-				<Comments name={props.users[1].name} message='I think too man!' />
+				<Comments name={props.comments[0].name} message={props.comments[0].text} />
+				<Comments name={props.comments[1].name} message={props.comments[1].text} />
 			</div>
 		)
 }
